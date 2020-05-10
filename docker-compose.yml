@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile_backend
+    ports:
+      - 5005:5000
+    working_dir: '/root/opt/'
+    tty: true
+    volumes:
+      - ./backend:/root/opt
