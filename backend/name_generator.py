@@ -208,7 +208,6 @@ def initialization_text(tokenizer, length, fix_word):
 
 def generate(tokenizer, device, max_iter=10, length=50, max_length=128,
              model=None, fix_word=None, samples=1):
-    data = ''
     if isinstance(model, str):
         model_state_dict = torch.load(os.path.join(model, "pytorch_model.bin"),
                                       map_location=device)
@@ -270,12 +269,6 @@ def generate(tokenizer, device, max_iter=10, length=50, max_length=128,
         data += sampled_sequence + '\n'
 
     return sampled_sequence
-    
-    print('-------------------------')
-    print(data)
-    path_sentences = './data.txt'
-    with open(path_sentences, mode='w',encoding='utf-8') as f:
-        f.write(data)
 
 
 def main(): # test
