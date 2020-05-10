@@ -266,12 +266,11 @@ def generate(tokenizer, device, max_iter=10, length=50, max_length=128,
                 break
             pre_tokens = generated_token_ids.clone()
         logger.info("sampled sequence: {}".format(sampled_sequence))
-        data += sampled_sequence + '\n'
 
     return sampled_sequence
 
 
-def main(): # test
+def main():
     args = parse_argument()
 
     if args.seed is not -1:
@@ -296,7 +295,7 @@ def main(): # test
                  fix_word=args.fix_word, samples=args.samples)
 
 
-def test():
+def nama_generate(length, fix_word):
     device = torch.device("cuda" if torch.cuda.is_available()
                           and not args.no_cuda else "cpu")
 
@@ -304,8 +303,8 @@ def test():
                                               tokenize_chinese_chars=False)
 
     compamy_name = generate(tokenizer, device, max_iter=20,
-                 length=5, model='./ML/company_model',
-                 fix_word=False, samples=1)
+                 length=length, model='./ML/company_model',
+                 fix_word=fix_word, samples=1)
     print('---------------')
     print(compamy_name)
     return compamy_name

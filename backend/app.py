@@ -9,13 +9,14 @@ api = responder.API(
                  "allow_headers": "*"
                  })
 
-@api.route("/")
-def hello_world(req, resp):
-    text = name_generator.test()
+@api.route("/api/generate")
+async def on_post(req, resp):
+    data = await req.media()
+    print(data)
+    compamy_name = name_generator.nama_generate(data["length"], data["fix_word"])
 
     resp.headers = {"Content-Type": "application/json; charset=utf-8"}
-    resp.text = text
-
+    resp.text = compamy_name
 
 if __name__ == '__main__':
     api.run(address='0.0.0.0', port=5000)
