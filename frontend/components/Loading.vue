@@ -20,7 +20,7 @@ export default class Loading extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .loading-page {
   position: fixed;
   top: 0;
