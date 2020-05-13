@@ -75,14 +75,14 @@ export default Vue.extend({
 
   &__keyword-area {
     width: 40%;
-    background-color: #525bb9;
+    background-color: $sub-color;
     padding: 30px;
     border-radius: 5px;
   }
 
   &__length-area {
     width: 40%;
-    background-color: #525bb9;
+    background-color: $sub-color;
     padding: 30px;
     border-radius: 5px;
   }
@@ -94,7 +94,7 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
 
-  background-color: #525bb9;
+  background-color: $sub-color;
   padding: 20px 80px 40px;
   border-radius: 5px;
 
