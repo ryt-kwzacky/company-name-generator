@@ -28,16 +28,18 @@
 import Vue from 'vue'
 import axios from 'axios'
 
+const serverPath = 'http://localhost:5005/api/generate'
+
 export default Vue.extend({
   data() {
-    return { fix_word: '', length: 4, generated: '...' }
+    return { fix_word: '', length: 4, generated: 'アートデザイン巧芸社' }
   },
   methods: {
     async submit() {
       this.$nuxt.$loading.start()
       try {
         await axios
-          .post('http://localhost:5005/api/generate', {
+          .post(serverPath, {
             length: Number(this.length),
             fix_word: this.fix_word
           })
@@ -103,6 +105,7 @@ export default Vue.extend({
 
   &__generated {
     margin: 0;
+    padding-top: 10px;
     font-size: 28px;
     font-weight: bold;
   }
