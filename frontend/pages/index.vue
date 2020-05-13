@@ -32,7 +32,7 @@ const serverPath = 'http://localhost:5005/api/generate'
 
 export default Vue.extend({
   data() {
-    return { fix_word: '', length: 4, generated: 'アートデザイン巧芸社' }
+    return { fix_word: '', length: 4, generated: '...' }
   },
   methods: {
     async submit() {
