@@ -35,15 +35,21 @@ export default Vue.extend({
   methods: {
     async submit() {
       this.$nuxt.$loading.start()
-      await axios
-        .post('http://localhost:5005/api/generate', {
-          length: Number(this.length),
-          fix_word: this.fix_word
-        })
-        .then((response) => {
-          this.generated = response.data
-          this.$nuxt.$loading.finish()
-        })
+      try {
+        await axios
+          .post('http://localhost:5005/api/generate', {
+            length: Number(this.length),
+            fix_word: this.fix_word
+          })
+          .then((response) => {
+            this.generated = response.data
+            this.$nuxt.$loading.finish()
+          })
+      } catch (e) {
+        // TODO: display modal
+        this.generated = 'error'
+        this.$nuxt.$loading.finish()
+      }
     }
   }
 })
