@@ -12,8 +12,10 @@
 
 <style lang="scss">
 .logo {
+  background: #fff;
   height: 80px;
   width: 80px;
+  border-radius: 50%;
   position: absolute;
   top: 30px;
   left: 30px;
